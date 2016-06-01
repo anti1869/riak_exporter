@@ -1,5 +1,4 @@
-import os
-
+from tornado.escape import json_decode
 from tornado.gen import coroutine
 from tornado.httpclient import AsyncHTTPClient, HTTPError, HTTPClient
 from tornado.ioloop import IOLoop
@@ -21,10 +20,16 @@ class MetricsHandler(RequestHandler):
         self._client = HTTPClient()
 
     def fetch_riak_stats(self, riak_stats):
+        """
+
+        :param riak_stats:
+        :rtype: dict
+        :return:
+        """
         data = self.DEFAULT_DATA
         try:
             response = self._client.fetch(riak_stats)
-            data = response.body
+            data = json_decode(response.body)
         except HTTPError as e:
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
@@ -34,9 +39,18 @@ class MetricsHandler(RequestHandler):
             print("Error: " + str(e))
         return data
 
+    def parse_riak_stats_data(self, riak_stats_data):
+        for key, value in riak_stats_data.items():
+            if isinstance(value, (int, float, bool)):
+                prom_value = float(value)
+                prom_str = "{}: {}".format(key, prom_value)
+                yield prom_str
+
     def get(self):
         riak_stats_data = self.fetch_riak_stats(self.application.riak_stats)
-        self.write(riak_stats_data)
+        prometheus = "\n".join(self.parse_riak_stats_data(riak_stats_data)) + "\n"
+        self.set_header("Content-Type", "text/plain")
+        self.write(prometheus)
 
 
 class RiakExporterServer(object):

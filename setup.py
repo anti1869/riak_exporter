@@ -1,3 +1,4 @@
+import io
 from setuptools import setup, find_packages
 import sys
 
@@ -7,7 +8,7 @@ SOURCE_DIR_NAME = "src"
 
 
 def readme():
-    with open('README.md', 'r', encoding='utf-8') as f:
+    with io.open('README.md', 'r', encoding='utf-8') as f:
         return f.read()
 
 setup(
@@ -28,7 +29,10 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Topic :: Internet :: WWW/HTTP',
         'Development Status :: 2 - Pre-Alpha',

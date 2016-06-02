@@ -23,7 +23,7 @@ Then just:
 riak-exporter --address=0.0.0.0 --port=8099 --riak=http://localhost:8099/stats --endpoint=/metrics
 ```
 
-All three arguments are optional.
+All arguments are optional.
  
 ## Daemonizing
 

@@ -32,4 +32,4 @@ Application intentionally does not daemonize itself. You are free to use your fa
 ## Status
 
 Currently, this app is in early stages of development. Nothing more that simple ``/stats`` endpoint translation
-are here. More features will (or will not follows) as long as I'll need them in my production setup.
+is here. More features will (or will not follows) as long as I'll need them in my production setup.

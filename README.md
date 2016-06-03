@@ -20,7 +20,7 @@ pip install riak_exporter
 Then just:
 
 ```
-riak-exporter --address=0.0.0.0 --port=8099 --riak=http://localhost:8099/stats --endpoint=/metrics
+riak-exporter --address=0.0.0.0 --port=8097 --riak=http://localhost:8098/stats --endpoint=/metrics
 ```
 
 All arguments are optional.

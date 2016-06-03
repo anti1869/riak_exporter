@@ -90,7 +90,7 @@ class RiakExporterServer(object):
 
     DEFAULT_RIAK_STATS = "http://localhost:8098/stats"
     DEFAULT_HOST = "0.0.0.0"
-    DEFAULT_PORT = 8099
+    DEFAULT_PORT = 8097
     DEFAULT_ENDPOINT = r"/metrics"
 
     def __init__(self, riak_stats=None, address=None, port=None, endpoint=None):

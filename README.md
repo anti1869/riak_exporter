@@ -24,6 +24,24 @@ riak-exporter --address=0.0.0.0 --port=8097 --riak=http://localhost:8098/stats -
 ```
 
 All arguments are optional.
+
+## Docker
+
+To run the container, simply use the below:
+`docker run -p 8097:8097 infinityworks/prometheus-riak-exporter:latest`
+
+To run it with the optional arguments
+`docker run -p 8097:8097 infinityworks/prometheus-riak-exporter:latest --address=0.0.0.0 --port=8097 --riak=http://localhost:8098/stats --endpoint=/metrics`
+
+Example Docker Compose
+
+```
+  riak-exporter:
+    command: --address=0.0.0.0 --port=8097 --riak=http://localhost:8098/stats --endpoint=/metrics
+    image: infinityworks/prometheus-riak-exporter:latest
+    ports:
+    - "8097:8097"
+```
  
 ## Daemonizing
 

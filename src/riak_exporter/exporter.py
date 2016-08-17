@@ -67,7 +67,7 @@ class MetricsHandler(RequestHandler):
         for key, value in riak_stats_data.items():
             if isinstance(value, (int, float, bool)):
                 prom_value = float(value)
-                prom_str = "{}: {}".format(key, prom_value)
+                prom_str = "riak_{} {}".format(key, prom_value)
                 yield prom_str
 
     @coroutine

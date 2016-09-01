@@ -51,3 +51,6 @@ Application intentionally does not daemonize itself. You are free to use your fa
 
 Currently, this app is in early stages of development. Nothing more that simple ``/stats`` endpoint translation
 is here. More features will (or will not follows) as long as I'll need them in my production setup.
+
+## Metrics
+[![](https://images.microbadger.com/badges/image/infinityworks/riak_exporter.svg)](http://microbadger.com/images/infinityworks/riak_exporter "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/infinityworks/riak_exporter.svg)](http://microbadger.com/images/infinityworks/riak_exporter "Get your own version badge on microbadger.com")
